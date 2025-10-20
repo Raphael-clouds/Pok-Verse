@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --main-title-size: 2.5rem;
+  --title-size: 1.9rem;
+  --text-size: 1.3rem;
+  --features-size: 0.75rem;
+  --background-dark: #211111;
+  --input-bg: #3b1e1e;
+  --button-search: #f5a623;
+  --primary-color: #ea2a33;
+  --text-color: #000;
+  --secondary-color: #fff;
+  --border-radius: 0.5rem;
+  --border: 0.15rem solid #ccc;
+  --border-navbar: 0.1rem solid #ccc4;
+  --border-btn: 0.1rem solid #ccc;
+  /* Background para cada tipo */
+  --type-normal: #a8a77a;
+  --type-fire: #ee8130;
+  --type-water: #6390f0;
+  --type-electric: #f7d02c;
+  --type-grass: #7ac74c;
+  --type-ice: #96d9d6;
+  --type-fighting: #c22e28;
+  --type-poison: #a33ea1;
+  --type-ground: #e2bf65;
+  --type-flying: #a98ff3;
+  --type-psychic: #f95587;
+  --type-bug: #a6b91a;
+  --type-rock: #b6a136;
+  --type-ghost: #735797;
+  --type-dragon: #6f35fc;
+  --type-dark: #705746;
+  --type-steel: #b7b7ce;
+  --type-fairy: #d685ad;
+  /* Color tenue de cada tipo */
+  --type-normal-light: #c6c6a7;
+  --type-fire-light: #f5ac78;
+  --type-water-light: #9db7f5;
+  --type-electric-light: #fae078;
+  --type-grass-light: #a7db8d;
+  --type-ice-light: #bce6e6;
+  --type-fighting-light: #d67873;
+  --type-poison-light: #c183c1;
+  --type-ground-light: #ebd69d;
+  --type-flying-light: #c6b7f5;
+  --type-psychic-light: #fa92b2;
+  --type-bug-light: #c6d16e;
+  --type-rock-light: #d1c17d;
+  --type-ghost-light: #a292bc;
+  --type-dragon-light: #a27dfa;
+  --type-dark-light: #a29288;
+  --type-steel-light: #d1d1e0;
+  --type-fairy-light: #f4bdc9;
+  /* Degradado */
+  --gradient-normal: linear-gradient(135deg, #a8a77a, #c6c6a7);
+  --gradient-fire: linear-gradient(135deg, #ee8130, #f5ac78);
+  --gradient-water: linear-gradient(135deg, #6390f0, #9db7f5);
+  --gradient-electric: linear-gradient(135deg, #f7d02c, #fae078);
+  --gradient-grass: linear-gradient(135deg, #7ac74c, #a7db8d);
+  --gradient-ice: linear-gradient(135deg, #96d9d6, #bce6e6);
+  --gradient-fighting: linear-gradient(135deg, #c22e28, #d67873);
+  --gradient-poison: linear-gradient(135deg, #a33ea1, #c183c1);
+  --gradient-ground: linear-gradient(135deg, #e2bf65, #ebd69d);
+  --gradient-flying: linear-gradient(135deg, #a98ff3, #c6b7f5);
+  --gradient-psychic: linear-gradient(135deg, #f95587, #fa92b2);
+  --gradient-bug: linear-gradient(135deg, #a6b91a, #c6d16e);
+  --gradient-rock: linear-gradient(135deg, #b6a136, #d1c17d);
+  --gradient-ghost: linear-gradient(135deg, #735797, #a292bc);
+  --gradient-dragon: linear-gradient(135deg, #6f35fc, #a27dfa);
+  --gradient-dark: linear-gradient(135deg, #705746, #a29288);
+  --gradient-steel: linear-gradient(135deg, #b7b7ce, #d1d1e0);
+  --gradient-fairy: linear-gradient(135deg, #d685ad, #f4bdc9);
+  --gradient-legendary: linear-gradient(
+    135deg,
+    #b8860b,
+    #ffd700,
+    #fff3b0,
+    #ffcc00,
+    #b8860b
+  );
+  --gradient-mythical: linear-gradient(
+    135deg,
+    #c0c0c0,
+    #dcdcdc,
+    #f8f8f8,
+    #b0b0b0,
+    #e0e0e0
+  );
+  --button-pagination: #8b5cf6;
+  --button-pagination-hover: #a78bfa;
+}
+
+
+/* Efecto de línea satinada solo para cartas especiales */
+.legendary-card,
+.mythical-card {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+.legendary-card::before,
+.mythical-card::before {
+  content: "";
+  position: absolute;
+  top: -70%;
+  left: -70%;
+  width: 240%;
+  height: 240%;
+  transform: translateX(-160%) translateY(-160%) rotate(60deg);
+  transition: transform 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+}
+
+/* Efecto específico para cartas legendarias */
+.legendary-card::before {
+  background: linear-gradient(
+    60deg,
+    transparent 10%,
+    rgba(255, 215, 0, 0.1) 30%,
+    rgba(255, 215, 0, 0.4) 40%,
+    rgba(255, 255, 255, 0.8) 45%,
+    rgba(255, 215, 0, 0.6) 50%,
+    rgba(255, 255, 255, 0.8) 55%,
+    rgba(255, 215, 0, 0.4) 60%,
+    rgba(255, 215, 0, 0.1) 70%,
+    transparent 90%
+  );
+}
+
+/* Efecto específico para cartas míticas */
+.mythical-card::before {
+  background: linear-gradient(
+    60deg,
+    transparent 10%,
+    rgba(192, 192, 192, 0.1) 30%,
+    rgba(192, 192, 192, 0.4) 40%,
+    rgba(255, 255, 255, 0.8) 45%,
+    rgba(192, 192, 192, 0.6) 50%,
+    rgba(255, 255, 255, 0.8) 55%,
+    rgba(192, 192, 192, 0.4) 60%,
+    rgba(192, 192, 192, 0.1) 70%,
+    transparent 90%
+  );
+}
+
+body {
+  scroll-behavior: smooth;
+  font-family: var(--font);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--background-dark);
+  color: var(--text-color);
+}
